@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -24,6 +25,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+   max-width: 420px;
+  margin: auto;
 }
 
 /* HEADER */
@@ -155,6 +158,62 @@ body {
   font-size: 0.8rem;
   color: #777;
   text-align: center;
+}
+
+/* RESPONSIVE KHUSUS HP */
+@media (max-width: 600px) {
+
+  .header {
+    padding: 25px 15px;
+  }
+
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .header p {
+    font-size: 13px;
+  }
+
+  .dashboard {
+    gap: 6px;
+  }
+
+  .badge {
+    font-size: 10px;
+    padding: 5px 8px;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+    gap: 12px;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .menu-item {
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  .icon {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+
+  .menu-item h3 {
+    font-size: 13px;
+  }
+
+  .menu-item p {
+    font-size: 11px;
+  }
+
+  .footer {
+    font-size: 10px;
+    padding: 20px;
+  }
 }
 </style>
 </head>
