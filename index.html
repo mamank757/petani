@@ -71,37 +71,6 @@ body {
 }
 
 /* TOMBOL UTAMA LCS (PENGGANTI MENU) */
-.lcs-btn {
-  grid-column: 1 / -1;
-  background: linear-gradient(90deg, #2e7d32, #1b5e20);
-  padding: 20px;
-  border-radius: 15px;
-  text-align: center;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  border: 1px solid var(--primary);
-  transition: 0.3s;
-  display: flex;
-  flex-direction: column; /* Membuat teks di bawah ikon */
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  animation: fade 0.6s forwards;
-}
-
-.lcs-btn:hover {
-  background: var(--primary);
-  color: #121212;
-  transform: scale(1.02);
-}
-
-.lcs-btn small {
-  font-weight: normal;
-  font-size: 0.8rem;
-  opacity: 0.9;
-}
-
 /* ITEM MENU BIASA */
 .menu-item {
   background: var(--card-dark);
@@ -160,8 +129,8 @@ body {
 <body>
 
 <div class="header">
-  <h1>🧑‍💻PPL DIGITAL TOOLS</h1>
-  <p>Pelaporan, perencanaan hingga panen dalam satu aplikasi</p>
+  <h1>🧑‍💻 APLIKASI TANI PADI</h1>
+  <p>Analisi, perencanaan, hingga panen dalam satu aplikasi</p>
 
   <div class="dashboard">
     <div class="badge">🌦️ <span id="cuaca">Loading...</span></div>
@@ -172,10 +141,10 @@ body {
 
 <div class="menu-grid">
 
-  <a href="https://mamank757.github.io/analisis/" class="lcs-btn">
+  <a href="https://mamank757.github.io/analisis/" class="menu-item">
   <div class="icon">📊</div>
-  <span>ANALISIS USAHA TANI</span>
-  <small>Klik untuk menghitung analisa usaha tani</small>
+  <h3>Analisis Usaha Tani</h3>
+  <p>Hitung biaya, hasil, dan keuntungan usaha tani.</p>
 </a>
 
   <a href="https://mamank757.github.io/padi" class="menu-item" style="animation-delay: 0.1s;">
