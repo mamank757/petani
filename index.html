@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PPL TOOLS - Indonesia</title>
+
+<style>
+:root {
+  --primary: #81c784;
+  --bg-dark: #121212;
+  --card-dark: #1e1e1e;
+  --text-main: #e0e0e0;
+  --text-muted: #b0b0b0;
+  --accent-green: #2e7d32;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  padding: 40px 20px;
+  width: 100%;
+  background: linear-gradient(180deg, #1b5e20, #121212);
+}
+
+.header h1 {
+  margin: 0;
+  color: white;
+}
+
+.header p {
+  color: var(--primary);
+}
+
+/* DASHBOARD */
+.dashboard {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.badge {
+  background: var(--primary);
+  color: black;
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+/* MENU GRID */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  width: 90%;
+  padding: 20px;
+}
+
+/* TOMBOL UTAMA LCS (PENGGANTI MENU) */
+.lcs-btn {
+  grid-column: 1 / -1;
+  background: linear-gradient(90deg, #2e7d32, #1b5e20);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  border: 1px solid var(--primary);
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column; /* Membuat teks di bawah ikon */
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  animation: fade 0.6s forwards;
+}
+
+.lcs-btn:hover {
+  background: var(--primary);
+  color: #121212;
+  transform: scale(1.02);
+}
+
+.lcs-btn small {
+  font-weight: normal;
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+/* ITEM MENU BIASA */
+.menu-item {
+  background: var(--card-dark);
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  border: 1px solid #333;
+  transition: 0.3s;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade 0.6s forwards;
+}
+
+.menu-item:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.icon {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.menu-item h3 {
+  color: var(--primary);
+  margin: 10px 0;
+}
+
+.menu-item p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+@keyframes fade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* FOOTER */
+.footer {
+  padding: 30px;
+  font-size: 0.8rem;
+  color: #666;
+  text-align: center;
+  line-height: 1.5;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <h1>🧑‍💻PPL DIGITAL TOOLS</h1>
+  <p>Pelaporan, perencanaan hingga panen dalam satu aplikasi</p>
+
+  <div class="dashboard">
+    <div class="badge">🌦️ <span id="cuaca">Loading...</span></div>
+    <div class="badge">📍 <span id="lokasi">Loading...</span></div>
+    <div class="badge">📅 <span id="musim">Loading...</span></div>
+  </div>
+</div>
+
+<div class="menu-grid">
+
+  <a href="https://mamank757.github.io/analisis/" class="lcs-btn">
+  <div class="icon">📊</div>
+  <span>ANALISIS USAHA TANI</span>
+  <small>Klik untuk menghitung analisa usaha tani</small>
+</a>
+
+  <a href="https://mamank757.github.io/padi" class="menu-item" style="animation-delay: 0.1s;">
+    <div class="icon">🌾</div>
+    <h3>Kalkulator Fase Padi</h3>
+    <p>Pantau jadwal pemupukan & panen.</p>
+  </a>
+
+  <a href="https://mamank757.github.io/dosis" class="menu-item" style="animation-delay: 0.2s;">
+    <div class="icon">🧪</div>
+    <h3>Kalkulator Dosis Pupuk</h3>
+    <p>Hitung kebutuhan pupuk nasional.</p>
+  </a>
+
+  <a href="https://mamank757.github.io/iklim" class="menu-item" style="animation-delay: 0.3s;">
+    <div class="icon">🌍</div>
+    <h3>Data Iklim & Cuaca</h3>
+    <p>Analisis El Nino dan La Nina (BOM).</p>
+  </a>
+
+</div>
+
+<div class="footer">
+  © 2026 Dibuat oleh: <br>
+  <strong>King Mamank</strong> • PPL Bola - Kab. Wajo
+</div>
+
+<script>
+// Logic Geolocation & Cuaca tetap sama
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition, errorLocation);
+  } else {
+    document.getElementById("lokasi").innerText = "GPS Mati";
+  }
+}
+
+function showPosition(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  document.getElementById("lokasi").innerText = lat.toFixed(2) + ", " + lon.toFixed(2);
+  getCuaca(lat, lon);
+}
+
+function errorLocation() {
+  document.getElementById("lokasi").innerText = "Izin Ditolak";
+}
+
+function getMusim(data) {
+  let bulan = new Date().getMonth() + 1;
+  let kelembapan = data.main.humidity;
+  if (kelembapan > 75) return "Musim Hujan (MH)";
+  if (kelembapan < 65 && (bulan >= 5 && bulan <= 9)) return "Musim Kemarau (MK)";
+  return "Pancaroba";
+}
+
+function getCuaca(lat, lon) {
+  let apiKey = "a6da7e4d60b79f9bc5e5a35f7ccc5885";
+  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=id`;
+
+  fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("cuaca").innerText = data.weather[0].description + " (" + data.main.temp + "°C)";
+      document.getElementById("musim").innerText = getMusim(data);
+    })
+    .catch(() => {
+      document.getElementById("cuaca").innerText = "Offline";
+    });
+}
+
+window.onload = getLocation;
+</script>
+
+</body>
+</html>
