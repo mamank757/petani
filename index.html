@@ -339,6 +339,7 @@ function getCuaca(lat, lon) {
 function getHijriDate() {
   const today = new Date();
 
+  // Format tanggal Hijriah
   const formatter = new Intl.DateTimeFormat('id-TN-u-ca-islamic', {
     day: 'numeric',
     month: 'long',
@@ -347,16 +348,19 @@ function getHijriDate() {
 
   const parts = formatter.formatToParts(today);
 
+  let hijriYear = parseInt(parts.find(p => p.type === 'year').value); // tahun Hijriah
+
+  // Ambil nama windu berdasarkan tahun Hijriah
+  let namaWindu = getWindu(hijriYear);
+
+  // Gabungkan dalam format: (1447H) Tahun Lontara: Dal Riolo – ...
+  document.getElementById("windu").innerText = `(${hijriYear}H) ${namaWindu}`;
+
+  // Optional: tetap tampilkan tanggal lengkap Hijriah di badge lain
   let day = parts.find(p => p.type === 'day').value;
   let month = parts.find(p => p.type === 'month').value;
-  let year = parseInt(parts.find(p => p.type === 'year').value);
-
-  document.getElementById("hijriah").innerText = `${day} ${month} ${year} H`;
-
-  let namaWindu = getWindu(year);
-  document.getElementById("windu").innerText = namaWindu;
+  document.getElementById("hijriah").innerText = `${day} ${month} ${hijriYear} H`;
 }
-
 // ===== FITUR BARU: WINDU =====
 function getWindu(hijriYear) {
   const siklus = [
