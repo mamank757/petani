@@ -61,7 +61,20 @@ body {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(129,199,132,0.3);
 }
+/* KHUSUS WINDU (LEBIH KONTRAS) */
+.windu-badge {
+  background: linear-gradient(135deg, #ffd54f, #ffb300);
+  color: #1b1b1b;
+  border: 1px solid #ffca28;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(255, 193, 7, 0.6);
+}
 
+/* efek glow halus */
+.windu-badge:hover {
+  box-shadow: 0 0 20px rgba(255, 193, 7, 0.9);
+  transform: scale(1.05);
+}
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -219,7 +232,7 @@ body {
 
     <!-- TAMBAHAN BARU -->
     <div class="badge">🗓️<span id="hijriah">Loading...</span></div>
-    <div class="badge">Tahun Lontara:️ <span id="windu">Loading...</span></div>
+   <div class="badge windu-badge">Tahun Lontara: <span id="windu">Loading...</span></div>
   </div>
 </div>
 
