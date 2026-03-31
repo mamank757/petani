@@ -6,6 +6,26 @@
 <title>APLIKASI TANI PADI - Indonesia</title>
 
 <style>
+/* TOMBOL DOWNLOAD */
+.download-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, #ff9800, #ff5722);
+  color: white;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 14px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  transition: 0.3s;
+}
+
+.download-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
 :root {
   --primary: #81c784;
   --bg-dark: #0f172a;
@@ -224,7 +244,11 @@ body {
 <div class="header">
   <h1>🌾 APLIKASI TANI PADI</h1>
   <p>Analisis, perencanaan, hingga panen dalam satu aplikasi</p>
-
+<a href="https://drive.google.com/file/d/19HtpLQ8s_a-kuHe76bN8gSRlz9lQ0bWY/view?usp=drive_link" 
+   target="_blank"
+   class="download-btn">
+   ⬇️ Download Aplikasi Android-nya di sini!
+</a>
   <div class="dashboard">
     <div class="badge">🌦️ <span id="cuaca">Loading...</span></div>
     <div class="badge">📍 <span id="lokasi">Loading...</span></div>
