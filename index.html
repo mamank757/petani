@@ -15,7 +15,6 @@
   --accent-green: #2e7d32;
 }
 
-/* BACKGROUND */
 body {
   font-family: 'Segoe UI', sans-serif;
   background: radial-gradient(circle at top, #1b5e20, #0f172a 70%);
@@ -24,11 +23,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-   max-width: 420px;
+  max-width: 420px;
   margin: auto;
 }
 
-/* HEADER */
 .header {
   text-align: center;
   padding: 40px 20px;
@@ -45,7 +43,6 @@ body {
   color: var(--primary);
 }
 
-/* DASHBOARD */
 .dashboard {
   display: flex;
   gap: 10px;
@@ -65,7 +62,6 @@ body {
   border: 1px solid rgba(129,199,132,0.3);
 }
 
-/* GRID */
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -75,7 +71,6 @@ body {
   padding: 20px;
 }
 
-/* CARD */
 .menu-item {
   background: var(--card-dark);
   padding: 25px;
@@ -94,7 +89,6 @@ body {
   animation: fade 0.6s forwards;
 }
 
-/* GLOW EFFECT */
 .menu-item::before {
   content: "";
   position: absolute;
@@ -117,7 +111,6 @@ body {
   box-shadow: 0 15px 30px rgba(0,0,0,0.6);
 }
 
-/* ICON BULAT */
 .icon {
   width: 60px;
   height: 60px;
@@ -131,7 +124,6 @@ body {
   box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
-/* TEXT */
 .menu-item h3 {
   color: white;
   margin: 10px 0;
@@ -143,7 +135,6 @@ body {
   margin: 0;
 }
 
-/* ANIMASI */
 @keyframes fade {
   to {
     opacity: 1;
@@ -151,7 +142,6 @@ body {
   }
 }
 
-/* FOOTER */
 .footer {
   padding: 30px;
   font-size: 0.9rem;
@@ -159,7 +149,6 @@ body {
   text-align: center;
 }
 
-/* RESPONSIVE KHUSUS HP */
 @media (max-width: 600px) {
 
   .header {
@@ -184,7 +173,7 @@ body {
   }
 
   .menu-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
     width: 100%;
     padding: 10px;
@@ -227,11 +216,14 @@ body {
     <div class="badge">🌦️ <span id="cuaca">Loading...</span></div>
     <div class="badge">📍 <span id="lokasi">Loading...</span></div>
     <div class="badge">📅 <span id="musim">Loading...</span></div>
+
+    <!-- TAMBAHAN BARU -->
+    <div class="badge">🗓️<span id="hijriah">Loading...</span></div>
+    <div class="badge">Tahun Lontara:️ <span id="windu">Loading...</span></div>
   </div>
 </div>
 
 <div class="menu-grid">
-
   <a href="https://mamank757.github.io/analisis/" class="menu-item">
     <div class="icon">📊</div>
     <h3>Analisis Usaha Tani</h3>
@@ -255,7 +247,6 @@ body {
     <h3>Data Iklim & Cuaca</h3>
     <p>Analisis El Nino dan La Nina (BOM).</p>
   </a>
-
 </div>
 
 <div class="footer">
@@ -264,6 +255,7 @@ body {
 </div>
 
 <script>
+// ===== LOKASI & CUACA (ASLI) =====
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition, errorLocation);
@@ -306,7 +298,52 @@ function getCuaca(lat, lon) {
     });
 }
 
-window.onload = getLocation;
+// ===== FITUR BARU: HIJRIAH =====
+function getHijriDate() {
+  const today = new Date();
+
+  const formatter = new Intl.DateTimeFormat('id-TN-u-ca-islamic', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  });
+
+  const parts = formatter.formatToParts(today);
+
+  let day = parts.find(p => p.type === 'day').value;
+  let month = parts.find(p => p.type === 'month').value;
+  let year = parseInt(parts.find(p => p.type === 'year').value);
+
+  document.getElementById("hijriah").innerText = `${day} ${month} ${year} H`;
+
+  let namaWindu = getWindu(year);
+  document.getElementById("windu").innerText = namaWindu;
+}
+
+// ===== FITUR BARU: WINDU =====
+function getWindu(hijriYear) {
+  const siklus = [
+    "Alif – kemarau lebih awal dan pendek, intensitas hujan tinggi, produktivitas padi tinggi.",
+    "Ha’ – kemarau lebih awal, intensitas hujan sedang dan produktivitas pertanian sedang.",
+    "Jim – intensitas hujan rendah, angin bertiup kencang, kemarau agak panjang, produktivitas pertanian rendah. ",
+    "Zai – intensitas hujan tinggi, terjadi banjir, hama tikus menyerang tanaman padi, intensitas penyinaran cukup tinggi dan angin bertiup kencang, produksi rendah.",
+    "Dal Riolo – musim hujan lebih cepat, kemarau cukup panjang, persawahan kekeringan dan produksi sedang. ",
+    "Ba’ – kemarau lebih cepat, musim hujan pendek, produktivitas pertanian cukup tinggi",
+    "Wau – intensitas hujan panjang, banjir, hama menyerang (khususnya tikus dan walang sangit), intensitas angin cukup tinggi, produksi pertanian rendah.",
+    "Tahun Dal Rimonri - musim hujan pendek, kemarau panjang, angin bertiup kencang, produksi pertanian sedang.",
+  ];
+
+  let index = (hijriYear - 1443) % 8;
+  if (index < 0) index += 8;
+
+  return siklus[index];
+}
+
+// ===== LOAD =====
+window.onload = function() {
+  getLocation();
+  getHijriDate();
+};
 </script>
 
 </body>
