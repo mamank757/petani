@@ -354,7 +354,7 @@ function getHijriDate() {
   let namaWindu = getWindu(hijriYear);
 
   // Gabungkan dalam format: (1447H) Tahun Lontara: Dal Riolo – ...
-  document.getElementById("windu").innerText = `(${hijriYear}H) ${namaWindu}`;
+  document.getElementById("windu").innerText = `(${hijriYear} H) ${namaWindu}`;
 
   // Optional: tetap tampilkan tanggal lengkap Hijriah di badge lain
   let day = parts.find(p => p.type === 'day').value;
