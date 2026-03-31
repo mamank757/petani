@@ -338,28 +338,35 @@ function getCuaca(lat, lon) {
 // ===== FITUR BARU: HIJRIAH =====
 function getHijriDate() {
   const today = new Date();
+  let tanggal = today.getDate();
+  let bulan = today.getMonth() + 1;
+  let tahun = today.getFullYear();
 
-  // Format tanggal Hijriah
-  const formatter = new Intl.DateTimeFormat('id-TN-u-ca-islamic', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
-  });
+  // API Aladhan (gratis & cukup akurat)
+  let url = `https://api.aladhan.com/v1/gToH?date=${tanggal}-${bulan}-${tahun}`;
 
-  const parts = formatter.formatToParts(today);
+  fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      let hijri = data.data.hijri;
 
-  let hijriYear = parseInt(parts.find(p => p.type === 'year').value); // tahun Hijriah
+      let hijriDay = hijri.day;
+      let hijriMonth = hijri.month.en; // bisa ganti .ar kalau mau arab
+      let hijriYear = parseInt(hijri.year);
 
-  // Ambil nama windu berdasarkan tahun Hijriah
-  let namaWindu = getWindu(hijriYear);
+      // tampilkan tanggal hijriah
+      document.getElementById("hijriah").innerText = `${hijriDay} ${hijriMonth} ${hijriYear} H`;
 
-  // Gabungkan dalam format: (1447H) Tahun Lontara: Dal Riolo – ...
-  document.getElementById("windu").innerText = `(${hijriYear} H) ${namaWindu}`;
+      // ambil windu
+      let namaWindu = getWindu(hijriYear);
 
-  // Optional: tetap tampilkan tanggal lengkap Hijriah di badge lain
-  let day = parts.find(p => p.type === 'day').value;
-  let month = parts.find(p => p.type === 'month').value;
-  document.getElementById("hijriah").innerText = `${day} ${month} ${hijriYear} H`;
+      // tampilkan windu (FORMAT SUDAH BENAR)
+      document.getElementById("windu").innerText = `(${hijriYear}H) ${namaWindu}`;
+    })
+    .catch(() => {
+      document.getElementById("hijriah").innerText = "Offline";
+      document.getElementById("windu").innerText = "-";
+    });
 }
 // ===== FITUR BARU: WINDU =====
 function getWindu(hijriYear) {
