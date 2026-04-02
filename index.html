@@ -16,7 +16,7 @@
   font-weight: bold;
   border-radius: 30px;
   text-decoration: none;
-  font-size: 11px;
+  font-size: 10px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.4);
   transition: 0.3s;
 }
@@ -42,36 +42,36 @@ body {
 
 .header {
   text-align: center;
-  padding: 0px 10px;
+  padding: 5px 10px;
   width: 100%;
 }
 
 .header h1 {
   margin: 2px;
   color: white;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .header p {
   color: var(--primary);
-  font-size: 12px;
+  font-size: 11px;
   margin: 5px 0;
 }
 
 .dashboard {
   display: flex;
-  gap: 5px;
+  gap: 4px;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .badge {
   background: rgba(129,199,132,0.1);
   color: var(--primary);
-  padding: 5px 10px;
-  border-radius: 15px;
-  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 9px;
   font-weight: bold;
   backdrop-filter: blur(5px);
   border: 1px solid rgba(129,199,132,0.2);
@@ -83,23 +83,25 @@ body {
   border: 1px solid #ffca28;
   width: 92%;
   margin-top: 8px;
-  line-height: 1.4;
+  line-height: 1.3;
   text-align: center;
-  padding: 8px;
+  padding: 6px;
+  border-radius: 10px;
 }
 
+/* GRID 3X3 */
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  width: 95%;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  width: 96%;
   padding: 10px;
 }
 
 .menu-item {
   background: #040224;
-  padding: 15px;
-  border-radius: 15px;
+  padding: 10px 5px;
+  border-radius: 12px;
   text-align: center;
   text-decoration: none;
   color: white;
@@ -111,23 +113,23 @@ body {
 }
 
 .icon {
-  width: 45px;
-  height: 45px;
-  margin: 0 auto 8px;
+  width: 35px;
+  height: 35px;
+  margin: 0 auto 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  font-size: 18px;
   border-radius: 50%;
   background: linear-gradient(135deg, #1b421d, #49734b);
 }
 
-.menu-item h3 { font-size: 13px; margin: 5px 0; }
-.menu-item p { font-size: 10px; color: var(--text-muted); line-height: 1.2; }
+.menu-item h3 { font-size: 10px; margin: 4px 0; font-weight: 600; }
+.menu-item p { font-size: 8px; color: var(--text-muted); line-height: 1.1; display: none; } /* P disembunyikan agar hemat ruang grid 3x3 */
 
 @keyframes fade { to { opacity: 1; transform: translateY(0); } }
 
-.footer { padding: 3px; font-size: 10px; text-align: center; }
+.footer { padding: 10px; font-size: 9px; text-align: center; }
 </style>
 </head>
 
@@ -135,9 +137,9 @@ body {
 
 <div class="header">
   <h1>🌾 APLIKASI TANI PADI</h1>
-  <p>Analisis, Perencanaan, Hingga Panen dalam Satu Aplikasi</p>
+  <p>Penyuluh Digital BPP Bola</p>
   <a href="https://drive.google.com/file/d/19HtpLQ8s_a-kuHe76bN8gSRlz9lQ0bWY/view?usp=drive_link" target="_blank" class="download-btn">
-     ⬇️ Download App Android
+      ⬇️ Download App
   </a>
   
   <div class="dashboard">
@@ -146,8 +148,8 @@ body {
     <div class="badge">📅 <span id="musim">...</span></div>
     <div class="badge">🗓️ <span id="hijriah">...</span></div>
     <div class="badge windu-badge" id="windu-box">
-      <strong id="lontara-label">Tahun Lontara:</strong> <br>
-      <span id="windu">Memuat data...</span>
+      <strong id="lontara-label" style="font-size: 10px;">Tahun Lontara:</strong> <br>
+      <span id="windu" style="font-size: 10px;">Memuat data...</span>
     </div>
   </div>
 </div>
@@ -155,33 +157,41 @@ body {
 <div class="menu-grid">
   <a href="https://mamank757.github.io/analisis/" class="menu-item">
     <div class="icon">📊</div>
-    <h3>Analisis Usaha</h3>
-    <p>Hitung laba rugi.</p>
+    <h3>Analisis Usaha Tani</h3>
   </a>
   <a href="https://mamank757.github.io/tanipadi" class="menu-item" style="animation-delay: 0.1s;">
     <div class="icon">🌾</div>
-    <h3>Fase Padi</h3>
-    <p>Jadwal pupuk.</p>
+    <h3>Fase Pertumbuhan Padi</h3>
   </a>
   <a href="https://mamank757.github.io/dosispupuk" class="menu-item" style="animation-delay: 0.2s;">
     <div class="icon">🧪</div>
-    <h3>Dosis Pupuk</h3>
-    <p>Kebutuhan ERDKK.</p>
+    <h3>Dosis Pupuk ERDKK</h3>
   </a>
+
   <a href="https://mamank757.github.io/tikus" class="menu-item" style="animation-delay: 0.3s;">
     <div class="icon">🐭</div>
-    <h3>Simulasi Tikus</h3>
-    <p>Prediksi serangan.</p>
+    <h3>Simulasi Serangan Tikus</h3>
   </a>
   <a href="https://mamank757.github.io/jadwal" class="menu-item" style="animation-delay: 0.4s;">
     <div class="icon">📅</div>
     <h3>J. Pengendalian Tikus</h3>
-    <p>Aksi lapangan.</p>
   </a>
   <a href="https://mamank757.github.io/dataiklim" class="menu-item" style="animation-delay: 0.5s;">
     <div class="icon">🌍</div>
-    <h3>Data Iklim</h3>
-    <p>La Nina & El Nino.</p>
+    <h3>Analisis Iklim</h3>
+  </a>
+ <a href="https://mamank757.github.io/jadwalpenggerek" class="menu-item" style="animation-delay: 0.7s; border-color: #ff9800;">
+    <div class="icon">📈</div>
+    <h3>Simulasi Pengg. Batang</h3>
+  </a>
+  <a href="https://mamank757.github.io/penggerek" class="menu-item" style="animation-delay: 0.6s; border-color: var(--primary);">
+    <div class="icon">🦋</div>
+    <h3>Siklus Penggerek Batang</h3>
+  </a>
+ 
+  <a href="https://bppbola.my.id" class="menu-item" style="animation-delay: 0.8s;">
+    <div class="icon">🌐</div>
+    <h3>Web BPP Bola</h3>
   </a>
 </div>
 
@@ -220,14 +230,8 @@ function getHijriDate() {
     .then(r => r.json()).then(d => {
       let h = d.data.hijri;
       let tahunHijriah = h.year;
-      
-      // Update badge tanggal hijriah di dashboard
       document.getElementById("hijriah").innerText = `${h.day} ${h.month.en} ${tahunHijriah}H`;
-      
-      // Update LABEL Lontara agar menyertakan tahun hijriah dinamis
       document.getElementById("lontara-label").innerText = `Tahun Lontara (${tahunHijriah}H):`;
-      
-      // Update konten prediksi
       document.getElementById("windu").innerText = getWindu(parseInt(tahunHijriah));
     });
 }
