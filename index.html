@@ -6,6 +6,13 @@
 <title>APLIKASI TANI PADI - Indonesia</title>
 
 <style>
+@keyframes borderGlow {
+  0% { border-color: #81c784; box-shadow: 0 0 10px rgba(129, 199, 132, 0.4); }
+  33% { border-color: #ff9800; box-shadow: 0 0 10px rgba(255, 152, 0, 0.4); }
+  66% { border-color: #2196f3; box-shadow: 0 0 10px rgba(33, 150, 243, 0.4); }
+  100% { border-color: #81c784; box-shadow: 0 0 10px rgba(129, 199, 132, 0.4); }
+}
+
 /* TOMBOL DOWNLOAD */
 .download-btn {
   display: inline-block;
@@ -99,21 +106,20 @@ body {
 }
 
 .menu-item {
+  
   background: #040224;
   padding: 10px 5px;
   border-radius: 12px;
   text-align: center;
   text-decoration: none;
   color: white;
-  /* Border Menyala Seragam */
   border: 1.5px solid var(--primary);
-  box-shadow: 0 0 10px rgba(129, 199, 132, 0.2);
   transition: 0.3s;
   opacity: 0;
   transform: translateY(15px);
-  animation: fade 0.5s forwards;
+  /* TAMBAHKAN BARIS DI BAWAH INI */
+  animation: fade 0.5s forwards, borderGlow 8s infinite linear;
 }
-
 .menu-item:active {
   transform: scale(0.95);
   box-shadow: 0 0 15px rgba(129, 199, 132, 0.5);
@@ -246,7 +252,7 @@ function getWindu(hijriYear) {
   const siklus = [
     "Alif – Kemarau lebih awal dan pendek, intensitas hujan tinggi, produktivitas padi tinggi.",
     "Ha’ – Kemarau lebih awal, intensitas hujan sedang dan produktivitas pertanian sedang.",
-    "Jim – Intensitas hujan rendah, angin bertiup kencang, kemarau agak panjang, produktivitas pertanian rendah.",
+    "Jim – Intensitas hujan rendah, angin bertiup kencang, kemarau agak panjang, produkt. pertanian rendah.",
     "Zai – Intensitas hujan tinggi, terjadi banjir, hama tikus menyerang, produksi rendah.",
     "Dal Riolo – Musim hujan lebih cepat, kemarau cukup panjang, produksi sedang.",
     "Ba’ – Kemarau lebih cepat, musim hujan pendek, produktivitas pertanian cukup tinggi.",
