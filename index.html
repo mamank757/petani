@@ -77,7 +77,6 @@ body {
   border: 1px solid rgba(129,199,132,0.2);
 }
 
-/* BADGE LONTARA FULL TEKS */
 .windu-badge {
   background: linear-gradient(135deg, #ffd54f, #ffb300);
   color: #1b1b1b;
@@ -136,7 +135,7 @@ body {
 
 <div class="header">
   <h1>🌾 APLIKASI TANI PADI</h1>
-  <p>Analisis, Perencanaan, Hingag Panen dalam Satu Aplikasi</p>
+  <p>Analisis, Perencanaan, Hingga Panen dalam Satu Aplikasi</p>
   <a href="https://drive.google.com/file/d/19HtpLQ8s_a-kuHe76bN8gSRlz9lQ0bWY/view?usp=drive_link" target="_blank" class="download-btn">
      ⬇️ Download App Android
   </a>
@@ -147,7 +146,7 @@ body {
     <div class="badge">📅 <span id="musim">...</span></div>
     <div class="badge">🗓️ <span id="hijriah">...</span></div>
     <div class="badge windu-badge" id="windu-box">
-      <strong>Tahun Lontara:</strong> <br>
+      <strong id="lontara-label">Tahun Lontara:</strong> <br>
       <span id="windu">Memuat data...</span>
     </div>
   </div>
@@ -187,9 +186,9 @@ body {
 </div>
 
 <div class="footer">
-  © 2026 Dibuat oleh:<br>
-  <strong>King Mamank</strong> • PPL BPP Bola - Kab. Wajo - Sulsel
+  © 2026 <strong>King Mamank</strong> • PPL BPP Bola - Kab. Wajo
 </div>
+
 <script>
 function getLocation() {
   if (navigator.geolocation) {
@@ -220,8 +219,16 @@ function getHijriDate() {
   fetch(`https://api.aladhan.com/v1/gToH?date=${t.getDate()}-${t.getMonth()+1}-${t.getFullYear()}`)
     .then(r => r.json()).then(d => {
       let h = d.data.hijri;
-      document.getElementById("hijriah").innerText = `${h.day} ${h.month.en} ${h.year}H`;
-      document.getElementById("windu").innerText = getWindu(parseInt(h.year));
+      let tahunHijriah = h.year;
+      
+      // Update badge tanggal hijriah di dashboard
+      document.getElementById("hijriah").innerText = `${h.day} ${h.month.en} ${tahunHijriah}H`;
+      
+      // Update LABEL Lontara agar menyertakan tahun hijriah dinamis
+      document.getElementById("lontara-label").innerText = `Tahun Lontara (${tahunHijriah}H):`;
+      
+      // Update konten prediksi
+      document.getElementById("windu").innerText = getWindu(parseInt(tahunHijriah));
     });
 }
 
