@@ -16,23 +16,16 @@
   font-weight: bold;
   border-radius: 30px;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 11px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.4);
   transition: 0.3s;
-}
-
-.download-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
 }
 
 :root {
   --primary: #81c784;
   --bg-dark: #0f172a;
-  --card-dark: rgba(30,30,30,0.6);
   --text-main: #e0e0e0;
   --text-muted: #b0b0b0;
-  --accent-green: #2e7d32;
 }
 
 body {
@@ -49,193 +42,93 @@ body {
 
 .header {
   text-align: center;
-  padding: 40px 20px;
+  padding: 20px 10px;
   width: 100%;
 }
 
 .header h1 {
   margin: 0;
   color: white;
-  letter-spacing: 1px;
+  font-size: 20px;
 }
 
 .header p {
   color: var(--primary);
+  font-size: 12px;
+  margin: 5px 0;
 }
 
 .dashboard {
   display: flex;
-  gap: 10px;
+  gap: 5px;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 .badge {
-  background: rgba(129,199,132,0.15);
+  background: rgba(129,199,132,0.1);
   color: var(--primary);
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 0.75rem;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 10px;
   font-weight: bold;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(129,199,132,0.3);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(129,199,132,0.2);
 }
-/* KHUSUS WINDU (LEBIH KONTRAS) */
+
+/* BADGE LONTARA FULL TEKS */
 .windu-badge {
   background: linear-gradient(135deg, #ffd54f, #ffb300);
   color: #1b1b1b;
   border: 1px solid #ffca28;
-  font-weight: bold;
-  box-shadow: 0 0 10px rgba(255, 193, 7, 0.6);
+  width: 92%;
+  margin-top: 8px;
+  line-height: 1.4;
+  text-align: center;
+  padding: 8px;
 }
 
-/* efek glow halus */
-.windu-badge:hover {
-  box-shadow: 0 0 20px rgba(255, 193, 7, 0.9);
-  transform: scale(1.05);
-}
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 20px;
-  max-width: 900px;
-  width: 90%;
-  padding: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  width: 95%;
+  padding: 10px;
 }
 
 .menu-item {
-  background:#040224;
-  padding: 25px;
-  border-radius: 20px;
+  background: #040224;
+  padding: 15px;
+  border-radius: 15px;
   text-align: center;
   text-decoration: none;
   color: white;
   border: 1px solid rgba(255,255,250,0.05);
-  transition: all 0.3s ease;
-  backdrop-filter: blur(12px);
-  position: relative;
-  overflow: hidden;
-
+  transition: 0.3s;
   opacity: 0;
-  transform: translateY(20px);
-  animation: fade 0.6s forwards;
-}
-
-.menu-item::before {
-  content: "";
-  position: absolute;
-  width: 120%;
-  height: 120%;
-  background: radial-gradient(circle, rgba(129,199,132,0.15), transparent 70%);
-  top: -20%;
-  left: -20%;
-  opacity: 0;
-  transition: 0.4s;
-}
-
-.menu-item:hover::before {
-  opacity: 1;
-}
-
-.menu-item:hover {
-  transform: translateY(-10px) scale(1.02);
-  border-color: var(--primary);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+  transform: translateY(15px);
+  animation: fade 0.5s forwards;
 }
 
 .icon {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 10px;
+  width: 45px;
+  height: 45px;
+  margin: 0 auto 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
+  font-size: 22px;
   border-radius: 50%;
   background: linear-gradient(135deg, #1b421d, #49734b);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
-.menu-item h3 {
-  color: white;
-  margin: 10px 0;
-}
+.menu-item h3 { font-size: 13px; margin: 5px 0; }
+.menu-item p { font-size: 10px; color: var(--text-muted); line-height: 1.2; }
 
-.menu-item p {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin: 0;
-}
+@keyframes fade { to { opacity: 1; transform: translateY(0); } }
 
-@keyframes fade {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.footer {
-  padding: 30px;
-  font-size: 0.9rem;
-  color: white;
-  text-align: center;
-}
-
-@media (max-width: 600px) {
-
-  .header {
-    padding: 25px 15px;
-  }
-
-  .header h1 {
-    font-size: 20px;
-  }
-
-  .header p {
-    font-size: 13px;
-  }
-
-  .dashboard {
-    gap: 6px;
-  }
-
-  .badge {
-    font-size: 10px;
-    padding: 5px 8px;
-  }
-
-  .menu-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    width: 100%;
-    padding: 10px;
-  }
-
-  .menu-item {
-    padding: 15px;
-    border-radius: 15px;
-  }
-
-  .icon {
-    width: 45px;
-    height: 45px;
-    font-size: 20px;
-  }
-
-  .menu-item h3 {
-    font-size: 13px;
-  }
-
-  .menu-item p {
-    font-size: 11px;
-  }
-
-  .footer {
-    font-size: 10px;
-    padding: 20px;
-  }
-}
+.footer { padding: 20px; font-size: 10px; text-align: center; }
 </style>
 </head>
 
@@ -243,46 +136,53 @@ body {
 
 <div class="header">
   <h1>🌾 APLIKASI TANI PADI</h1>
-  <p>Analisis, perencanaan, hingga panen dalam satu aplikasi</p>
-<a href="https://drive.google.com/file/d/19HtpLQ8s_a-kuHe76bN8gSRlz9lQ0bWY/view?usp=drive_link" 
-   target="_blank"
-   class="download-btn">
-   ⬇️ Download Aplikasi Android-nya di sini!
-</a>
+  <p>Analisis, Perencanaan, Hingag Panen dalam Satu Aplikasi</p>
+  <a href="https://drive.google.com/file/d/19HtpLQ8s_a-kuHe76bN8gSRlz9lQ0bWY/view?usp=drive_link" target="_blank" class="download-btn">
+     ⬇️ Download App Android
+  </a>
+  
   <div class="dashboard">
-    <div class="badge">🌦️ <span id="cuaca">Loading...</span></div>
-    <div class="badge">📍 <span id="lokasi">Loading...</span></div>
-    <div class="badge">📅 <span id="musim">Loading...</span></div>
-
-    <!-- TAMBAHAN BARU -->
-    <div class="badge">🗓️<span id="hijriah">Loading...</span></div>
-   <div class="badge windu-badge">Tahun Lontara: <span id="windu">Loading...</span></div>
+    <div class="badge">🌦️ <span id="cuaca">...</span></div>
+    <div class="badge">📍 <span id="lokasi">...</span></div>
+    <div class="badge">📅 <span id="musim">...</span></div>
+    <div class="badge">🗓️ <span id="hijriah">...</span></div>
+    <div class="badge windu-badge" id="windu-box">
+      <strong>Tahun Lontara:</strong> <br>
+      <span id="windu">Memuat data...</span>
+    </div>
   </div>
 </div>
 
 <div class="menu-grid">
   <a href="https://mamank757.github.io/analisis/" class="menu-item">
     <div class="icon">📊</div>
-    <h3>Analisis Usaha Tani</h3>
-    <p>Hitung biaya, hasil, dan keuntungan usaha tani.</p>
+    <h3>Analisis Usaha</h3>
+    <p>Hitung laba rugi.</p>
   </a>
-
   <a href="https://mamank757.github.io/tanipadi" class="menu-item" style="animation-delay: 0.1s;">
     <div class="icon">🌾</div>
-    <h3>Kalkulator Fase Padi</h3>
-    <p>Pantau jadwal pemupukan & panen.</p>
+    <h3>Fase Padi</h3>
+    <p>Jadwal pupuk.</p>
   </a>
-
   <a href="https://mamank757.github.io/dosispupuk" class="menu-item" style="animation-delay: 0.2s;">
     <div class="icon">🧪</div>
-    <h3>Kalkulator Dosis Pupuk</h3>
-    <p>Hitung kebutuhan pupuk berdasarkan ERDKK.</p>
+    <h3>Dosis Pupuk</h3>
+    <p>Kebutuhan ERDKK.</p>
   </a>
-
-  <a href="https://mamank757.github.io/dataiklim" class="menu-item" style="animation-delay: 0.3s;">
+  <a href="https://mamank757.github.io/tikus" class="menu-item" style="animation-delay: 0.3s;">
+    <div class="icon">🐭</div>
+    <h3>Simulasi Tikus</h3>
+    <p>Prediksi serangan.</p>
+  </a>
+  <a href="https://mamank757.github.io/jadwal" class="menu-item" style="animation-delay: 0.4s;">
+    <div class="icon">📅</div>
+    <h3>J. Pengendalian Tikus</h3>
+    <p>Aksi lapangan.</p>
+  </a>
+  <a href="https://mamank757.github.io/dataiklim" class="menu-item" style="animation-delay: 0.5s;">
     <div class="icon">🌍</div>
-    <h3>Data Iklim & Cuaca</h3>
-    <p>Analisis El Nino dan La Nina (BOM).</p>
+    <h3>Data Iklim</h3>
+    <p>La Nina & El Nino.</p>
   </a>
 </div>
 
@@ -290,108 +190,58 @@ body {
   © 2026 Dibuat oleh:<br>
   <strong>King Mamank</strong> • PPL BPP Bola - Kab. Wajo - Sulsel
 </div>
-
 <script>
-// ===== LOKASI & CUACA (ASLI) =====
 function getLocation() {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition, errorLocation);
+    navigator.geolocation.getCurrentPosition(showPosition, () => document.getElementById("lokasi").innerText = "Wajo");
   } else {
-    document.getElementById("lokasi").innerText = "GPS Mati";
+    document.getElementById("lokasi").innerText = "No GPS";
   }
 }
 
-function showPosition(position) {
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
+function showPosition(p) {
+  let lat = p.coords.latitude;
+  let lon = p.coords.longitude;
   document.getElementById("lokasi").innerText = lat.toFixed(2) + ", " + lon.toFixed(2);
   getCuaca(lat, lon);
 }
 
-function errorLocation() {
-  document.getElementById("lokasi").innerText = "Izin Ditolak";
-}
-
-function getMusim(data) {
-  let bulan = new Date().getMonth() + 1;
-  let kelembapan = data.main.humidity;
-  if (kelembapan > 75) return "Musim Hujan (MH)";
-  if (kelembapan < 65 && (bulan >= 5 && bulan <= 9)) return "Musim Kemarau (MK)";
-  return "Pancaroba";
-}
-
 function getCuaca(lat, lon) {
   let apiKey = "a6da7e4d60b79f9bc5e5a35f7ccc5885";
-  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=id`;
-
-  fetch(url)
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById("cuaca").innerText = data.weather[0].description + " (" + data.main.temp + "°C)";
-      document.getElementById("musim").innerText = getMusim(data);
-    })
-    .catch(() => {
-      document.getElementById("cuaca").innerText = "Offline";
+  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=id`)
+    .then(r => r.json()).then(data => {
+      document.getElementById("cuaca").innerText = data.main.temp + "°C";
+      document.getElementById("musim").innerText = (data.main.humidity > 70) ? "MH" : "MK";
     });
 }
 
-// ===== FITUR BARU: HIJRIAH =====
 function getHijriDate() {
-  const today = new Date();
-  let tanggal = today.getDate();
-  let bulan = today.getMonth() + 1;
-  let tahun = today.getFullYear();
-
-  // API Aladhan (gratis & cukup akurat)
-  let url = `https://api.aladhan.com/v1/gToH?date=${tanggal}-${bulan}-${tahun}`;
-
-  fetch(url)
-    .then(res => res.json())
-    .then(data => {
-      let hijri = data.data.hijri;
-
-      let hijriDay = hijri.day;
-      let hijriMonth = hijri.month.en; // bisa ganti .ar kalau mau arab
-      let hijriYear = parseInt(hijri.year);
-
-      // tampilkan tanggal hijriah
-      document.getElementById("hijriah").innerText = `${hijriDay} ${hijriMonth} ${hijriYear} H`;
-
-      // ambil windu
-      let namaWindu = getWindu(hijriYear);
-
-      // tampilkan windu (FORMAT SUDAH BENAR)
-      document.getElementById("windu").innerText = `(${hijriYear}H) ${namaWindu}`;
-    })
-    .catch(() => {
-      document.getElementById("hijriah").innerText = "Offline";
-      document.getElementById("windu").innerText = "-";
+  const t = new Date();
+  fetch(`https://api.aladhan.com/v1/gToH?date=${t.getDate()}-${t.getMonth()+1}-${t.getFullYear()}`)
+    .then(r => r.json()).then(d => {
+      let h = d.data.hijri;
+      document.getElementById("hijriah").innerText = `${h.day} ${h.month.en} ${h.year}H`;
+      document.getElementById("windu").innerText = getWindu(parseInt(h.year));
     });
 }
-// ===== FITUR BARU: WINDU =====
+
 function getWindu(hijriYear) {
   const siklus = [
     "Alif – Kemarau lebih awal dan pendek, intensitas hujan tinggi, produktivitas padi tinggi.",
     "Ha’ – Kemarau lebih awal, intensitas hujan sedang dan produktivitas pertanian sedang.",
-    "Jim – Intensitas hujan rendah, angin bertiup kencang, kemarau agak panjang, produktivitas pertanian rendah. ",
-    "Zai – Intensitas hujan tinggi, terjadi banjir, hama tikus menyerang tanaman padi, intensitas penyinaran cukup tinggi dan angin bertiup kencang, produksi rendah.",
-    "Dal Riolo – Musim hujan lebih cepat, kemarau cukup panjang, persawahan kekeringan dan produksi sedang. ",
-    "Ba’ – Kemarau lebih cepat, musim hujan pendek, produktivitas pertanian cukup tinggi",
-    "Wau – Intensitas hujan panjang, banjir, hama menyerang (khususnya tikus dan walang sangit), intensitas angin cukup tinggi, produksi pertanian rendah.",
-    "Tahun Dal Rimonri - Musim hujan pendek, kemarau panjang, angin bertiup kencang, produksi pertanian sedang.",
+    "Jim – Intensitas hujan rendah, angin bertiup kencang, kemarau agak panjang, produktivitas pertanian rendah.",
+    "Zai – Intensitas hujan tinggi, terjadi banjir, hama tikus menyerang, produksi rendah.",
+    "Dal Riolo – Musim hujan lebih cepat, kemarau cukup panjang, produksi sedang.",
+    "Ba’ – Kemarau lebih cepat, musim hujan pendek, produktivitas pertanian cukup tinggi.",
+    "Wau – Intensitas hujan panjang, banjir, hama (tikus/walang sangit), produksi rendah.",
+    "Tahun Dal Rimonri - Musim hujan pendek, kemarau panjang, angin kencang, produksi sedang.",
   ];
-
   let index = (hijriYear - 1443) % 8;
   if (index < 0) index += 8;
-
   return siklus[index];
 }
 
-// ===== LOAD =====
-window.onload = function() {
-  getLocation();
-  getHijriDate();
-};
+window.onload = function() { getLocation(); getHijriDate(); };
 </script>
 
 </body>
