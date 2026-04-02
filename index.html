@@ -142,7 +142,7 @@ body {
 
 @keyframes fade { to { opacity: 1; transform: translateY(0); } }
 
-.footer { padding: 10px; font-size: 9px; text-align: center; }
+.footer { padding: 20px; font-size: 11px; text-align: center; }
 </style>
 </head>
 
@@ -206,11 +206,23 @@ body {
     <h3>Web BPP Bola</h3>
   </a>
 </div>
-
-<div class="footer">
-  © 2026 <strong>King Mamank</strong> • PPL BPP Bola - Kab. Wajo
+<footer style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 0px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background: #1e1e1e;
+  border-top: 1px solid #f4b800;
+">
+  <div class="footer">
+  © 2026 Dibuat oleh:<br>
+  <strong>King Mamank</strong> • PPL BPP Bola - Kab. Wajo - Sulsel
 </div>
-
+</footer>
 <script>
 function getLocation() {
   if (navigator.geolocation) {
@@ -252,7 +264,7 @@ function getWindu(hijriYear) {
   const siklus = [
     "Alif – Kemarau lebih awal dan pendek, intensitas hujan tinggi, produktivitas padi tinggi.",
     "Ha’ – Kemarau lebih awal, intensitas hujan sedang dan produktivitas pertanian sedang.",
-    "Jim – Intensitas hujan rendah, angin bertiup kencang, kemarau agak panjang, produkt. pertanian rendah.",
+    "Jim – Intensitas hujan rendah, angin bertiup kencang, kemarau agak panjang, produktivitas pertanian rendah.",
     "Zai – Intensitas hujan tinggi, terjadi banjir, hama tikus menyerang, produksi rendah.",
     "Dal Riolo – Musim hujan lebih cepat, kemarau cukup panjang, produksi sedang.",
     "Ba’ – Kemarau lebih cepat, musim hujan pendek, produktivitas pertanian cukup tinggi.",
