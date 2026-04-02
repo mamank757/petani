@@ -42,7 +42,7 @@ body {
 
 .header {
   text-align: center;
-  padding: 5px 10px;
+  padding: 10px 10px;
   width: 100%;
 }
 
@@ -105,11 +105,18 @@ body {
   text-align: center;
   text-decoration: none;
   color: white;
-  border: 1px solid rgba(255,255,250,0.05);
+  /* Border Menyala Seragam */
+  border: 1.5px solid var(--primary);
+  box-shadow: 0 0 10px rgba(129, 199, 132, 0.2);
   transition: 0.3s;
   opacity: 0;
   transform: translateY(15px);
   animation: fade 0.5s forwards;
+}
+
+.menu-item:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 15px rgba(129, 199, 132, 0.5);
 }
 
 .icon {
@@ -125,7 +132,7 @@ body {
 }
 
 .menu-item h3 { font-size: 10px; margin: 4px 0; font-weight: 600; }
-.menu-item p { font-size: 8px; color: var(--text-muted); line-height: 1.1; display: none; } /* P disembunyikan agar hemat ruang grid 3x3 */
+.menu-item p { font-size: 8px; color: var(--text-muted); line-height: 1.1; display: none; }
 
 @keyframes fade { to { opacity: 1; transform: translateY(0); } }
 
@@ -180,15 +187,14 @@ body {
     <div class="icon">🌍</div>
     <h3>Analisis Iklim</h3>
   </a>
- <a href="https://mamank757.github.io/jadwalpenggerek" class="menu-item" style="animation-delay: 0.7s; border-color: #ff9800;">
+  <a href="https://mamank757.github.io/jadwalpenggerek" class="menu-item" style="animation-delay: 0.6s;">
     <div class="icon">📈</div>
     <h3>Simulasi Pengg. Batang</h3>
   </a>
-  <a href="https://mamank757.github.io/penggerek" class="menu-item" style="animation-delay: 0.6s; border-color: var(--primary);">
+  <a href="https://mamank757.github.io/penggerek" class="menu-item" style="animation-delay: 0.7s;">
     <div class="icon">🦋</div>
     <h3>Siklus Penggerek Batang</h3>
   </a>
- 
   <a href="https://bppbola.my.id" class="menu-item" style="animation-delay: 0.8s;">
     <div class="icon">🌐</div>
     <h3>Web BPP Bola</h3>
