@@ -103,9 +103,16 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 8px;
             width: 100%;
-            padding: 15px 0 130px 0; /* Padding bawah extra agar tidak tertutup footer */
+            padding: 15px 0 10px 0;
             flex: 1 0 auto;
             align-content: start;
+        }
+
+        /* MENU FULL WIDTH (Bawah) */
+        .menu-full {
+            width: 100%;
+            margin-top: 5px;
+            padding-bottom: 130px; /* Jarak agar tidak tertutup footer */
         }
 
         .menu-item {
@@ -124,6 +131,15 @@
             flex-direction: column;
             justify-content: center;
         }
+
+        /* Khusus untuk menu horizontal di bawah */
+        .menu-item.horizontal {
+            flex-direction: row;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+        }
+        .menu-item.horizontal .icon { margin: 0; }
 
         .icon {
             width: 35px;
@@ -165,12 +181,10 @@
             padding: 10px 5px;
             font-size: 10px;
             color: var(--text-muted);
-            border-top: 2px solid #f4b800; /* Garis kuning identitas */
+            border-top: 2px solid #f4b800;
         }
 
-        .credit-box strong {
-            color: #fff;
-        }
+        .credit-box strong { color: #fff; }
     </style>
 </head>
 
@@ -198,14 +212,25 @@
 
     <div class="menu-grid">
         <a href="https://mamank757.github.io/analisis/" class="menu-item"><div class="icon">📈</div><h3>Analisis Usaha Tani</h3></a>
+        <a href="https://mamank757.github.io/catatan/" class="menu-item" style="animation-delay: 0.8s;"><div class="icon">📝</div><h3>Catatan Usaha Tani</h3></a>
         <a href="https://mamank757.github.io/tanipadi" class="menu-item" style="animation-delay: 0.1s;"><div class="icon">🌾</div><h3>Fase Pertumbuhan Padi</h3></a>
-        <a href="https://mamank757.github.io/dosispupuk" class="menu-item" style="animation-delay: 0.2s;"><div class="icon">🧪</div><h3>Dosis Pupuk ERDKK</h3></a>
-        <a href="https://mamank757.github.io/tikus" class="menu-item" style="animation-delay: 0.3s;"><div class="icon">🐭</div><h3>Simulasi Serangan Tikus</h3></a>
+        
+                <a href="https://mamank757.github.io/tikus" class="menu-item" style="animation-delay: 0.3s;"><div class="icon">🐭</div><h3>Simulasi Serangan Tikus</h3></a>
         <a href="https://mamank757.github.io/jadwaltikus" class="menu-item" style="animation-delay: 0.4s;"><div class="icon">📅</div><h3>Jadwal Pengendalian Tikus</h3></a>
-        <a href="https://mamank757.github.io/dataiklim" class="menu-item" style="animation-delay: 0.5s;"><div class="icon">🌍</div><h3>Analisis Iklim</h3></a>
-        <a href="https://mamank757.github.io/penggerek" class="menu-item" style="animation-delay: 0.6s;"><div class="icon">🐛</div><h3>Simulasi Penggerek Batang</h3></a>
+        <a href="https://mamank757.github.io/dosispupuk" class="menu-item" style="animation-delay: 0.2s;"><div class="icon">🧪</div><h3>Dosis Pupuk ERDKK</h3></a>
+             <a href="https://mamank757.github.io/penggerek" class="menu-item" style="animation-delay: 0.6s;"><div class="icon">🐛</div><h3>Simulasi Penggerek Batang</h3></a>
+             
         <a href="https://mamank757.github.io/jadwalpenggerek" class="menu-item" style="animation-delay: 0.7s;"><div class="icon">🦋</div><h3>Jadwal Pengendalian Penggerek</h3></a>
-        <a href="https://www.bppbola.my.id" class="menu-item" style="animation-delay: 0.8s;"><div class="icon">🌐</div><h3>Web BPP Bola</h3></a>
+        
+           <a href="https://mamank757.github.io/dataiklim" class="menu-item" style="animation-delay: 0.5s;"><div class="icon">🌍</div><h3>Analisis Iklim</h3></a>
+        
+    </div>
+
+    <div class="menu-full">
+        <a href="https://www.bppbola.my.id" class="menu-item horizontal" style="animation-delay: 0.9s;">
+            <div class="icon">🌐</div>
+            <h3>Kunjungi Web Resmi BPP Bola utk Informasi Lainnya</h3>
+        </a>
     </div>
 </div>
 
@@ -222,6 +247,7 @@
 </footer>
 
 <script>
+// (Script tetap sama seperti sebelumnya)
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, () => document.getElementById("lokasi").innerText = "Wajo");
